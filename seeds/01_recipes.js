@@ -11,9 +11,6 @@ exports.seed = function(knex) {
         {
           recipe_name: 'cheese cake'
         },
-        {
-          recipe_name: 'rice'
-        },
       ]);
     });
 };

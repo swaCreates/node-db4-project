@@ -13,4 +13,15 @@ router.get('/', async (req, res) => {
     };
 });
 
+router.get('/:id', async (req, res) => {
+    try {
+        const shoppingList= await db.getShoppingList(req.params.id);
+        res.json(shoppingList);
+    } catch (err) {
+        next(err);
+    };
+});
+
+
+
 module.exports= router;

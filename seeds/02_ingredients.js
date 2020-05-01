@@ -6,12 +6,6 @@ exports.seed = function(knex) {
       // Inserts seed entries
       return knex('Ingredients').insert([
         {
-          ingredient: 'salt'
-        },
-        {
-          ingredient: 'pepper'
-        },
-        {
           ingredient: 'butter'
         },
         {
