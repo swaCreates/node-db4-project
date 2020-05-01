@@ -18,8 +18,18 @@ router.get('/:id', async (req, res) => {
         const shoppingList= await db.getShoppingList(req.params.id);
         res.json(shoppingList);
     } catch (err) {
+        console.log('Error getting shoppingList:', err);
         next(err);
     };
+});
+
+router.get('/:id/instructions', async (req, res) => {
+    try {
+        const instructions= await db.getInstructions(req.params.id);
+        res.json(instructions);
+    } catch (err) {
+        console.log('Error getting instructions:', err);
+    }
 });
 
 
