@@ -3,7 +3,7 @@ const db= require('./recipeDB.js');
 
 const router= express.Router();
 
-router.get('/', async (req, res) => {
+router.get('/', async (req, res, next) => {
     try {
         const recipes= await db.getRecipes();
         res.json(recipes);
@@ -13,7 +13,7 @@ router.get('/', async (req, res) => {
     };
 });
 
-router.get('/:id', async (req, res) => {
+router.get('/:id', async (req, res, next) => {
     try {
         const shoppingList= await db.getShoppingList(req.params.id);
         res.json(shoppingList);
@@ -23,12 +23,13 @@ router.get('/:id', async (req, res) => {
     };
 });
 
-router.get('/:id/instructions', async (req, res) => {
+router.get('/:id/instructions', async (req, res, next) => {
     try {
         const instructions= await db.getInstructions(req.params.id);
         res.json(instructions);
     } catch (err) {
         console.log('Error getting instructions:', err);
+        next(err);
     }
 });
 
